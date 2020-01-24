@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action" (click)="searchBook()">Search
+                    Book</button>
+                <button type="button" class="list-group-item list-group-item-action" (click)="viewReturnBook()">Return
+                    Book</button>
+                <button type="button" class="list-group-item list-group-item-action" (click)="viewIssuedBooks()">Books
+                    Issue History</button>
+                <button type="button" class="list-group-item list-group-item-action" (click)="viewAccount()">View
+                    Account</button>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6" *ngIf="viewaccount">
+            <view-account></view-account>
+        </div>
+        <div class="col-md-6" *ngIf="returnbook">
+            <return-books></return-books>
+        </div>
+        <div class="col-md-6" *ngIf="issuedbook">
+            <issued-books></issued-books>
+        </div>
+    </div>
+</div>

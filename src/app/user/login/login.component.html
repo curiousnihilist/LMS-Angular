@@ -1,0 +1,28 @@
+<div class="card" style="width: 30%; left: 500px; top: 50px; ">
+  <div class="card-header">
+    <h4 style="text-align: center;">LOGIN</h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="login()" #loginForm=ngForm>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="credentials.emailId" name="email" #email=ngModel id="email" required style="background-color: rgba(163, 204, 236, 0.5);">
+        <span *ngIf="email.touched && email.invalid" class="alert-danger" style="text-align: center;">invalid
+          email Id!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" #password=ngModel [(ngModel)]="credentials.password" name="password" id="password" required style="background-color: rgba(163, 204, 236, 0.5);">
+        <span *ngIf="password.touched && password.invalid" class="alert-danger"
+                style="text-align: center;">invalid password!</span>
+      </div>
+
+      <div class="form-group">
+         <p style="text-align: center;"> <button class="btn btn-success" type="submit" [disabled]="loginForm.invalid">Login</button>
+         </p>
+      </div>
+    </form>
+  </div>
+</div>

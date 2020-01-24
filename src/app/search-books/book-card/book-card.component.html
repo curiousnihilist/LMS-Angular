@@ -1,0 +1,25 @@
+<div class="card" style="height: 350px; width: 80%;">
+    <img class="card-img-top" src="../../../assets/images/bookcover.jpg" alt="Card image">
+    <div class="card-body" style="overflow-wrap: break-word;">
+      <!-- <p style="text-align: left; font-weight: bold;">Concepts of Physics Part 1</p>
+      <p>H C Verma</p>
+      <p>Computer science, information & general works</p> -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h6>{{book.title}}</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p *ngFor="let author of authors"> {{author.name}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 ">
+                <p style="text-align: right;"><button id="btnSearch" class="btn btn-success btn-md center-block" (click)="viewBook()" >View Book</button></p>
+                <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <button id="btnClear" class="btn btn-success btn-md center-block" >button</button> -->
+             </div>
+        </div>
+    </div>
+  </div>

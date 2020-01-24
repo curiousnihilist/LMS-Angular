@@ -1,0 +1,117 @@
+
+<div class="card  " style="width: 80%; top: 50px; left: 150px;">
+  <div class="card-body mt-4">
+<h3 class="text-center">ADD BOOK</h3>
+<form #addBookForm=ngForm (ngSubmit) = 'addBook()'>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Enter Title</label><br>
+        <input type="text" class="form-control" [(ngModel)]=book.title  #title=ngModel name="title" placeholder="Eg. Concepts of Physics" required>
+        <span *ngIf = "title.touched && title.invalid " class="alert-danger"> 
+          Invalid Title!</span>
+          <hr>
+      </div>
+    
+      <div class="form-group">
+        <label>Enter ISBN</label><br>
+        <input type="text" class="form-control" [(ngModel)]=book.isbn name="isbn" #isbn=ngModel placeholder="Eg. 978-0-545-01022-1" pattern="[0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{5}-[0-9]{1}" required>
+        <span *ngIf = "isbn.touched && isbn.invalid " class="alert-danger"> 
+          Invalid ISBN!</span>
+          <hr>
+      </div>
+    
+      <div class="form-group">
+        <label>Enter Publisher</label><br>
+        <input type="text" class="form-control" [(ngModel)]=book.publisher name="publisher" #publisher=ngModel placeholder="Eg. Bharati Bhawan"  required>
+        <span *ngIf = "publisher.touched && publisher.invalid " class="alert-danger"> 
+          Invalid publisher!</span>
+          <hr>
+      </div>
+    
+      <div class="form-group">
+        <label>Enter Category</label><br>
+        <select class="form-control" #category=ngModel [(ngModel)]=book.category name="category">
+          <option value="Computer science, information & general works" disable >--Select--</option>
+          <option *ngFor="let category of categories" [value]="category" selected="selected">{{category}}</option>
+        </select>
+            <hr>
+      </div>
+    
+      <div class="form-group">
+        <label>Enter Description</label><br>
+        <input type="text" class="form-control" [(ngModel)]=book.description name="description" #description=ngModel placeholder="Eg. Best book in the market" pattern="[A-Za-z0-9\s.-]{2,}" required>
+        <span *ngIf = "description.touched && description.invalid " class="alert-danger"> 
+          Invalid Description!</span>
+          <hr>
+      </div>
+
+      <div class="form-group">
+      <label>Enter Price</label><br>
+        <input type="number" class="form-control" [(ngModel)]=book.price  name="price" #price=ngModel placeholder="Eg. 499.0" required min="0">
+        <span *ngIf = "price.touched && price.invalid " class="alert-danger"> 
+          Invalid Price!</span>
+         
+      </div>
+    
+     
+    </div>
+
+    <div class="col-md-6">
+      
+      <div class="form-group">
+        <label>Enter Rack-ID</label><br>
+        <input type="text" class="form-control" [(ngModel)]=book.rackId name="rackId" #rackId=ngModel placeholder="Eg. A/123" pattern="[A-Z]/[0-9]{3}" required>
+        <span *ngIf = "rackId.touched && rackId.invalid " class="alert-danger"> 
+          Invalid Rack-ID!</span>
+          <hr>
+      </div>
+
+      <div class="form-group">
+        <label>Enter No of Copies</label><br>
+        <input type="number" class="form-control" [(ngModel)]=book.noOfCopies name="noOfCopies" #noOfCopies=ngModel  min="1" required>
+        <span *ngIf = "noOfCopies.touched && noOfCopies.invalid " class="alert-danger"> 
+          Invalid No of Copies!</span>
+          <hr>
+      </div>
+    
+      <ul class="list-group">
+        <li class="list-group-item ">Authors Added : {{book.authors.length}}</li>
+      </ul>
+      <br>
+      <ul class="list-group" *ngFor="let author of authors; let idx = index">
+        <li class="list-group-item list-group-item-primary" >{{idx+1}} - {{author.name}} : {{author.description}}</li>
+      </ul>
+        
+    <br>
+      <div *ngFor="let no of authorArray">
+    
+        <div class="form-group" >
+        <label>Enter Author Name</label><br>
+        <input type="text" class="form-control" [(ngModel)]=author.name name="aname" #aname=ngModel placeholder="Eg. H C Verma" pattern="[a-zA-Z ]{2,30}" >
+        <span *ngIf = "aname.dirty && aname.invalid" class="alert-danger"> 
+          Invalid Author Name!</span>
+      </div>
+    
+      <div class="form-group">
+        <label>Enter Author Description</label><br>
+        <input type="text" class="form-control" [(ngModel)]=author.description name="adescription" #adescription=ngModel placeholder="Eg. Best Physics Author" pattern="[a-z0-9\s.-]{2,}" >
+        <span *ngIf = "adescription.dirty && adescription.invalid " class="alert-danger"> 
+          Invalid Author Description!</span>
+      </div>
+      
+      <p style="text-align: right;"><button class="btn btn-primary" type="button" (click)="addAuthor()">Add Author</button></p>
+    
+    </div>
+        <div class="form-group">
+          <button  class="btn btn-success" type="submit" [disabled] = "!addBookForm.valid">Submit</button>
+        </div>
+    </div>
+  </div>
+ 
+
+  
+</form>
+</div>
+</div>

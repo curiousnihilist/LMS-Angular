@@ -1,0 +1,94 @@
+<div class="row">
+    <br>
+    <br>
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <br>
+        <br>
+        <br>
+        <img src="../../../assets/images/bookcover.jpg" class="rounded float-left" width="250px" height="300px" >
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th scope="row">Title :</th>
+                <td>{{book.title}}</td>
+              </tr>
+              <tr>
+                <th scope="row">ISBN :</th>
+                <td>{{book.isbn}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Author :</th>
+                <td *ngFor="let author of authors">{{author.name}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Description :</th>
+                <td>{{book.description}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Publisher:</th>
+                <td>{{book.publisher}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Category:</th>
+                <td>{{book.category}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Rack Id:</th>
+                <td>{{book.rackId}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="text-align: right;"><button class="btn btn-success" (click)="issue()" data-toggle="modal" data-target="#issueDetailsModal">Issue Book</button></p>
+    </div>
+
+    <div class="col-md-1"></div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="issueDetailsModal" tabindex="-1" role="dialog" aria-labelledby="issueDetailsModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="issueDetailsModalTitle" style="text-align: center;">Issue Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-borderless">
+            <tbody>
+                <tr>
+                  <th scope="row">Book :</th>
+                  <td>{{book.title}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Account ID:</th>
+                  <td>{{account.accountId}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Issue Date :</th>
+                  <td>{{currentDate}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Due Date:</th>
+                  <td>{{dueDate}}</td>
+                </tr>
+              </tbody>
+            </table>
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+          <button type="button" class="btn btn-primary" (click)="issueConfirm()" data-dismiss="modal">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

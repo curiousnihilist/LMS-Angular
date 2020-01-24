@@ -1,0 +1,27 @@
+<div class="card" *ngFor="let item of issuedItems" >
+    <div class="card-body">
+        <table class="table table-borderless table-sm">
+            <tbody>
+                <tr>
+                    <th scope="row">Issue ID:</th>
+                    <td>{{item.issueId}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Name:</th>
+                    <td>{{item.book.title}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Issued On:</th>
+                    <td>{{item.issueDate}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Due Date:</th>
+                    <td>{{item.dueDate}}</td>
+                    <th scope="row">Fine :</th>
+                    <td>Rs. {{item.fine}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: right;"><button class="btn btn-primary" (click)="returnBook(item)">Return Book</button></p>
+    </div>
+</div>

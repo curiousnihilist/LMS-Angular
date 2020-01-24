@@ -1,0 +1,55 @@
+<h3 class="text-center">Search Books</h3>
+<div class="row">
+  <div class="col-md-12">
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6" >
+        <form (ngSubmit)="searchBooks()" #searchForm=ngForm>
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchText" #text=ngModel name="search_text" required>
+            <div class="input-group-append">
+              <button class="btn btn-success" type="submit" [disabled]="!searchForm.valid">Search</button>
+            </div>
+          </div>
+          <br>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="searchradio" value="title" [(ngModel)]="searchBy" #title=ngModel required>Title
+            </label>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="searchradio" value="isbn" [(ngModel)]="searchBy" #isbn=ngModel>ISBN
+            </label>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="form-check-inline disabled">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="searchradio" value="category" [(ngModel)]="searchBy" #category=ngModel>Category
+            </label>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="form-check-inline disabled">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="searchradio" value="author" [(ngModel)]="searchBy" #author=ngModel>Author
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</div>
+<hr>
+<br>
+<div class="row">
+ 
+
+  <div class="col-md-3" id= "wrapper" *ngFor="let book of books">
+    <book-card [book]=book></book-card>
+    <br>
+  </div>
+  
+</div>

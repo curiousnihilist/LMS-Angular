@@ -1,0 +1,30 @@
+   
+.search_icon{
+    float: right;
+    position: relative;
+    right: 1px;
+    top: -37px;
+    font-size: 20px;
+    color: #999;
+    background: #fff;
+    padding: 3px 12px;
+    border-radius: 2px 4px 2px 3px;
+    border-left: 2px solid black;
+ 
+ }
+ 
+ h3{
+     color: rgb(107, 160, 196);
+ }
+ #searchform{
+   position: center;
+    margin: 0 auto;
+    width: 700px;
+    top:140px;
+ }
+ 
+ .search_input{
+    background: #11111145;
+ }
+
+ 

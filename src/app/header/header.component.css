@@ -1,0 +1,21 @@
+.navbar {
+    background: linear-gradient(to right,rgba(69, 70, 64, 0.938) 0%,rgb(129, 143, 226) 100%);
+    padding: 5px 15px !important;
+    font-size: 20px
+
+}
+
+.nav-item button {
+    border: none;
+    padding: 10px;
+    
+}
+
+#navbarNav ul li button a {
+    position: relative;
+    display : block;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    
+}

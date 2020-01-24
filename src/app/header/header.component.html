@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <nav class=" navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">LMS</a>
+    </nav>
+    <div class="container-fluid">
+        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto" style="position: relative;">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-tarnsparent btn-sm button-group">
+                        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home
+                            <span class="sr-only">(current)</span>
+                        </a></button>
+                </li>
+                
+                <!-- <li class="nav-item">
+                    <button type="button" class="btn btn-tarnsparent btn-sm button-group">
+                        <a class="nav-link" [routerLink]="['/add']" routerLinkActive="active">AddBooks</a></button>
+                </li> -->
+                <li class="nav-item">
+                    <button type="button" class="btn btn-tarnsparent btn-sm button-group">
+                        <a class="nav-link" [routerLink]="['/search']" routerLinkActive="active">SearchBook</a></button>
+                </li>
+
+                <li class="nav-item" *ngIf="!isLoggedIn">
+                    <button type="button" class="btn btn-tarnsparent btn-sm button-group">
+                        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!authService.isloggedin">Login</a></button>
+                </li>
+
+                <li class="nav-item">
+                    <button type="button" class="btn btn-tarnsparent btn-sm button-group">
+                        <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!authService.isloggedin">Register</a></button>
+                </li>
+
+                <li class="nav-item">
+                    <button type="button" class="btn btn-tarnsparent btn-sm button-group">
+                        <a class="nav-link" [routerLink]="['/cust-dashboard']" routerLinkActive="active" *ngIf="authService.isloggedin">Dashboard</a></button>
+                </li>
+
+                <li class="nav-item">
+                    <button type="button" class="btn btn-tarnsparent btn-sm button-group">
+                        <a class="nav-link" (click)="logout()" *ngIf="authService.isloggedin">Logout</a></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
